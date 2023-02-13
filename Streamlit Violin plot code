@@ -1,0 +1,20 @@
+import plotly.express as px
+import streamlit as st
+import pandas as pd
+
+df=pd.read_csv(r'C:\Users\USER\Downloads\gapminder_with_codes.csv')
+fig = px.violin(
+    df.query("year==2007"),
+    x="gdpPercap",
+    )
+st.plotly_chart(fig, theme=None, use_container_width=True)
+fig = px.violin(
+    df.query("year==2007"),
+    x="lifeExp",
+    )
+st.plotly_chart(fig, theme=None, use_container_width=True)
+fig = px.violin(
+    df.query("year==2007"),
+    x="pop",
+    )
+st.plotly_chart(fig, theme=None, use_container_width=True)
