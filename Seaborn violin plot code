@@ -1,0 +1,19 @@
+from matplotlib import pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+sns.set_theme()
+file=pd.read_csv(r'C:\Users\USER\Downloads\gapminder_with_codes.csv')
+specific=file.loc[file['year']==2007]
+
+fig=plt.figure(figsize=(6,6))
+fg=fig.add_gridspec(1,5)
+ax= fig.add_subplot(2,2,1)
+sns.violinplot(x='pop',y='year',data=specific,palette="light:g", inner="points", orient="h")
+ax= fig.add_subplot(2,2,2)
+sns.violinplot(x='lifeExp',y='year',data=specific,palette="light:g", inner="points", orient="h")
+ax= fig.add_subplot(2,2,3)
+sns.violinplot(x='gdpPercap',y='year',data=specific,palette="light:g", inner="points", orient="h")
+
+fig.tight_layout()
+plt.show()
